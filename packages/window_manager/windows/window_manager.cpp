@@ -643,7 +643,7 @@ void WindowManager::SetFullScreen(const flutter::EncodableMap& args) {
       // restore titlebar style
       title_bar_style_ = g_title_bar_style_before_fullscreen;
       is_frameless_ = false;
-      MARGINS margins = {0, 0, 0, 0};
+      MARGINS margins = {0, 0, 1, 0};
       RECT rect1;
       GetWindowRect(mainWindow, &rect1);
       DwmExtendFrameIntoClientArea(mainWindow, &margins);
@@ -918,7 +918,7 @@ void WindowManager::SetTitleBarStyle(const flutter::EncodableMap& args) {
   // TitleBarStyle.normal/hidden
   is_frameless_ = false;
 
-  MARGINS margins = {0, 0, 0, 0};
+  MARGINS margins = {0, 0, 1, 0};
   HWND hWnd = GetMainWindow();
   RECT rect;
   GetWindowRect(hWnd, &rect);
